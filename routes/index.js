@@ -166,8 +166,8 @@ router.post('/teaches', function(req, res, next) {
 
 router.post('/student', function(req, res, next) {
   try{
-    connection.query("CREATE TABLE IF NOT EXISTS STUDENT(ID INT,NAME VARCHAR(50),DEPT_NAME VARCHAR(50),TOT_CRED INT,PRIMARY KEY (ID))");
-    const _query = "INSERT INTO STUDENT VALUES("+req.body.id+",'"+req.body.name+"','"+req.body.dept_name+"',"+req.body.tot_cred+")";     
+    connection.query("CREATE TABLE IF NOT EXISTS STUDENT(ID VARCHAR(50),NAME VARCHAR(50),DEPT_NAME VARCHAR(50),TOT_CRED FLOAT,PRIMARY KEY (ID))");
+    const _query = "INSERT INTO STUDENT VALUES('"+req.body.id+"','"+req.body.name+"','"+req.body.dept_name+"',"+req.body.tot_cred+")";     
     connection.query(_query,(err, result, field)=>{
         if(!err){
             res.json({

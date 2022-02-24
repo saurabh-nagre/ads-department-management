@@ -1,1 +1,28 @@
-<p>student works!</p>
+<div class="main">
+    <h4>Student Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        <label for="id" class="label">Student ID:</label>
+        <input type="text" id = "id" name="id" class="input" [(ngModel)]="id"> <br>
+        <label for="name" class="label">Student Name:</label>
+        <input type="text" min="0" id = "name" name="name" class="input" [(ngModel)]="name"> <br>
+
+        <label for="deptname" class="label">Department: </label>
+        <select name="deptname" id="deptname" class="input" (select)="ondepartmentSelect($event.target)">
+            <option *ngFor="let res of departmentresult" [value]="res.DEPT_NAME">{{res.DEPT_NAME}}</option>
+        </select><br>
+        <label for="credit" class="label">Credit:</label>
+        <input type="number" min="0" id = "credit" name="credit" class="input" [(ngModel)]="tot_cred"> <br>
+        
+        <button type="submit" class="btn btn-primary btn-sm">Add Student</button>
+    </form>
+    <h6>Added Student</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} .{{row.ID}}</p>
+            <p class="text-sm col border border-black">{{row.NAME}}</p>
+            <p class="text-sm col border border-black">{{row.DEPT_NAME}}</p>
+            <p class="text-sm col border border-black">{{row.TOT_CRED}}</p>
+        </div>
+    </div>
+</div>

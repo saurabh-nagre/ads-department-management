@@ -3,7 +3,7 @@
     
     <form (ngSubmit)="submit()">
         <label for="courseid" class="label">Course:</label>
-        <select name="courseid" id="courseid" class="input">
+        <select name="courseid" id="courseid" class="input" (select)="oncourseselected($event.target)">
             <option *ngFor="let res of courseidresult" value="res.TITLE">{{res.TITLE}}</option>
         </select><br>
         <label for="secid" class="label">Section ID:</label>
@@ -12,13 +12,13 @@
         <input type="number" min="0" id = "semester" name="semester" class="input" [(ngModel)]="semester"> <br>
         <label for="year" class="label">Year:</label>
         <input type="number" min="0" id = "year" name="year" class="input" [(ngModel)]="year"> <br>
-        <label for="building" class="label">building:</label>
-        <input type="text" id = "building" name="building" class="input" [(ngModel)]="building"> <br>
-        <label for="roomnumber" class="label">Room Number:</label>
-        <input type="number" min="0" id = "roomnumber" name="roomnumber" class="input" [(ngModel)]="room_number"> <br>
+        <label for="classroom" class="label">Classroom: </label>
+        <select name="classroom" id="classroom" class="input" (select)="onclassroomSelect($event.target)">
+            <option *ngFor="let res of classroomresult" [value]="res.BUILDING +'-'+res.ROOM_NUMBER">{{res.BUILDING}} - {{res.ROOM_NUMBER}}</option>
+        </select><br>
         <label for="timeslot" class="label">Time Slot:</label>
-        <select name="timeslot" class="input" id="timeslot">
-            <option *ngFor="let res of timeslotidresult" [value]="res.STAR_TTIME + 'TO' + res.END_TIME">{{res.START_TIME}} to {{res.END_TIME}}</option>
+        <select name="timeslot" class="input" id="timeslot" (select)="ontimeslotSelect($event.target)">
+            <option *ngFor="let res of timeslotidresult" [value]="res.STAR_TIME + 'TO' + res.END_TIME">{{res.START_TIME}} to {{res.END_TIME}}</option>
         </select><br>
         
         <button type="submit" class="btn btn-primary btn-sm">Add Section</button>

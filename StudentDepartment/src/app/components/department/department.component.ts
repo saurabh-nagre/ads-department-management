@@ -22,7 +22,7 @@ export class DepartmentComponent implements OnInit {
     this.http.post('/api/department',{building:this.building,dept_name:this.dept_name,budget:this.budget})
     .subscribe((Response:any)=>{
       if(Response.status){
-        alert('Instructor Added');
+        alert('Department Added');
         this.budget = 0
         this.building = ''
         this.dept_name = ""

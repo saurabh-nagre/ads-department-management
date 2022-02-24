@@ -1,1 +1,35 @@
-<p>takes works!</p>
+<div class="main">
+    <h4>TAKES Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        <label for="id" class="label">Student ID:</label>
+        <select name="id" id="id" class="input">
+            <option *ngFor="let res of studentresult" [value]="res.ID+' '+res.NAME">{{res.ID}} {{res.NAME}}</option>
+        </select><br>
+        <label for="course" class="label">Course:</label>
+        <select name="course" id="course" class="input">
+            <option *ngFor="let res of sectionresult" [value]="res.COURSE_ID+' '+res.TITLE">{{res.COURSE_ID}} {{res.TITLE}}</option>
+        </select><br>
+        <label for="secid" class="label">Section id:</label>
+        <input type="text" id = "secid" name="secid" class="input" [(ngModel)]="sec_id" [disabled]="true"><br>
+        <label for="semester" class="label">Semester:</label>
+        <input type="text" id = "semester" name="semester" class="input" [(ngModel)]="semester" [disabled]="true"><br>
+        <label for="year" class="label">Year:</label>
+        <input type="text" id = "year" name="year" class="input" [(ngModel)]="year" [disabled]="true"><br>
+        <label for="grade" class="label">Grade:</label>
+        <input type="text" id = "grade" name="grade" class="input" [(ngModel)]="grade"><br>
+        <button type="submit" class="btn btn-primary btn-sm">Add Pre Require</button>
+    </form>
+
+    <h6>Added Pre Require</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} . {{row.ID}}</p>
+            <p class="text-sm col border border-black"> {{row.COURSE_ID}}</p>
+            <p class="text-sm col border border-black"> {{row.SEC_ID}}</p>
+            <p class="text-sm col border border-black"> {{row.SEMESTER}}</p>
+            <p class="text-sm col border border-black"> {{row.YEAR}}</p>
+            <p class="text-sm col border border-black"> {{row.GRADE}}</p>
+        </div>
+    </div>
+</div>

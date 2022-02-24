@@ -1,1 +1,20 @@
-<p>prereq works!</p>
+<div class="main">
+    <h4>Pre Require Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        <label for="courseid" class="label">Course:</label>
+        <select name="courseid" id="courseid" class="input">
+            <option *ngFor="let res of courseidresult" value="res.TITLE">{{res.TITLE}}</option>
+        </select><br>
+        <label for="prereq" class="label">Prereq Id:</label>
+        <input type="text" id = "prereq" name="prereq" class="input" [(ngModel)]="prereq_id"> <br>
+        <button type="submit" class="btn btn-primary btn-sm">Add Pre Require</button>
+    </form>
+    <h6>Added Pre Require</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} . {{getCourse(row.COURSE_ID)}}</p>
+            <p class="text-sm col border border-black"> {{row.prereq_id}}</p>
+        </div>
+    </div>
+</div>

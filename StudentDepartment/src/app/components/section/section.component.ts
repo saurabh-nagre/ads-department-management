@@ -19,6 +19,7 @@ export class SectionComponent implements OnInit {
 
   timeslotidresult :any
   courseidresult:any
+  classroomresult:any
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
@@ -26,6 +27,13 @@ export class SectionComponent implements OnInit {
       if(response){
         this.courseidresult = response.result;
         this.course_id = this.courseidresult[0].COURSE_ID;
+      }
+    })
+    this.http.get('/api/get/classroom').subscribe((response:any)=>{
+      if(response){
+        this.classroomresult = response.result;
+        this.building = this.courseidresult[0].BUILDING
+        this.room_number = this.courseidresult[0].ROOM_NUMBER;
       }
     })
 
@@ -37,6 +45,7 @@ export class SectionComponent implements OnInit {
     })
     this.refresh();
   }
+
   getCourse(id:any){
     for(let res of this.courseidresult){
       if(res.COURSE_ID==id){
@@ -53,19 +62,20 @@ export class SectionComponent implements OnInit {
     }
     return ' ';
   }
+  onclassroomSelect(selected:any){
+    this.building = this.classroomresult[selected.selectedIndex].BUILDING
+    this.room_number = this.classroomresult[selected.selectedIndex].ROOM_NUMBER;
+  }
   ontimeslotSelect(selected:any){
-    console.log(selected.selectedIndex);
-
     this.time_slot_id = this.timeslotidresult[selected.selectedIndex].TIME_SLOT_ID; 
   }
   oncourseselected(selected:any){
-    console.log(selected.selectedIndex);
     this.course_id = this.courseidresult[selected.selectedIndex].COURSE_ID;
   }
 
   submit(){
     this.http.post('/api/section',
-    {course_id:this.course_id,sec_id:this.sec_id,semester:this.semester,year:this.year,building :this.building,room_number :this.room_number,time_slot_id:this.time_slot_id})
+    {course_id:this.course_id,sec_id:this.sec_id,semester:this.semester,year:this.year,building:this.building,room_number :this.room_number,time_slot_id:this.time_slot_id})
     .subscribe((Response:any)=>{
       if(Response.status){
         alert('Section Added');
