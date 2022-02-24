@@ -1,0 +1,21 @@
+<div class="main">
+    <h4>Classroom Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        <label for="building" class="label">Building Name:</label>
+        <input type="text" id = "building" name="building" class="input" [(ngModel)]="building"> <br>
+        <label for="roomnumber" class="label">Room Number:</label>
+        <input type="number" min="0" id = "roomnumber" name="roomnumber" class="input" [(ngModel)]="roomnumber"> <br>
+        <label for="capacity" class="label">Classroom Capacity:</label>
+        <input type="number" min="0" id = "capacity" name="capacity" class="input" [(ngModel)]="capacity"> <br>
+        <button type="submit" class="btn btn-primary btn-sm">Add Classroom</button>
+    </form>
+    <h6>Added Classrooms</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} . {{row.BUILDING}}</p>
+            <p class="text-sm col border border-black"> {{row.ROOM_NUMBER}}</p>
+            <p class="text-sm col border border-black"> {{row.CAPACITY}}</p>
+        </div>
+    </div>
+</div>

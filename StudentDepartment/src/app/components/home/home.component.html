@@ -1,0 +1,44 @@
+<div class="header">
+    <h3>University Management</h3>
+</div>
+
+<div class="sidenav">
+<div [classList]="currentSelected==0?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/classroom'" (click)="select(0)">
+    Classroom
+</div>
+<div [classList]="currentSelected==1?'selected border border-dark box':'border border-dark box'" [routerLink]="'/home/department'" (click)="select(1)">
+    Department
+</div>
+<div [classList]="currentSelected==2?'selected border border-dark box':'border border-dark box'" [routerLink]="'/home/course'" (click)="select(2)">
+    Course
+</div>
+<div [classList]="currentSelected==3?'selected border border-dark box':'border border-dark box'" [routerLink]="'/home/instructor'" (click)="select(3)">
+    Instructor
+</div>
+<div [classList]="currentSelected==4?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/section'" (click)="select(4)">
+    Section
+</div>
+<div [classList]="currentSelected==5?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/teaches'" (click)="select(5)">
+    Teaches
+</div>
+<div [classList]="currentSelected==6?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/student'" (click)="select(6)">
+    Student
+</div>
+<div [classList]="currentSelected==7?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/takes'" (click)="select(7)">
+    Takes
+</div>
+<div [classList]="currentSelected==8?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/advisor'" (click)="select(8)">
+    Advisor
+</div>
+<div [classList]="currentSelected==9?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/time_slot'" (click)="select(9)">
+    Time Slot
+</div>
+<div [classList]="currentSelected==10?'selected border border-dark box':'border border-dark box'"  [routerLink]="'/home/prereq'" (click)="select(10)">
+    Prereq
+</div>
+</div>
+
+<div class="main">
+    <router-outlet></router-outlet>
+</div>
+

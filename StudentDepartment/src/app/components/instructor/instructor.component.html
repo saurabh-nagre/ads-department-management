@@ -1,0 +1,24 @@
+<div class="main">
+    <h4>Instructor Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        <label for="name" class="label">Name:</label>
+        <input type="text" id = "name" name="name" class="input" [(ngModel)]="name"> <br>
+        <label for="id" class="label">Instructor Id:</label>
+        <input type="number" min="0" id = "id" name="id" class="input" [(ngModel)]="id"> <br>
+        <label for="dept_name" class="label">Department Name:</label>
+        <input type="text" id = "dept_name" name="dept_name" class="input" [(ngModel)]="dept_name"> <br>
+        <label for="salary" class="label">Salary:</label>
+        <input type="number" min="0" id = "salary" name="salary" class="input" [(ngModel)]="salary"> <br>
+        <button type="submit" class="btn btn-primary btn-sm">Add Instructor</button>
+    </form>
+    <h6>Added Instructor</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} . {{row.ID}}</p>
+            <p class="text-sm col border border-black"> {{row.NAME}}</p>
+            <p class="text-sm col border border-black"> {{row.DEPT_NAME}}</p>
+            <p class="text-sm col border border-black"> {{row.SALARY}}</p>
+        </div>
+    </div>
+</div>

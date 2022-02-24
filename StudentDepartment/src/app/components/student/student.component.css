@@ -1,0 +1,25 @@
+h4,h6{
+    text-align: center;
+    border-color: black;
+    border-width: 2px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+.main{
+    float: right;
+    width: 80%;
+}
+.label{
+    width: 20%;
+    text-align: end;
+    margin-bottom: 20px;
+}
+.input{
+    margin-left: 10%;
+    width: 70%;
+    margin-bottom: 20px;
+}
+button{
+    width: 20%;
+    margin-left: 40%;
+}

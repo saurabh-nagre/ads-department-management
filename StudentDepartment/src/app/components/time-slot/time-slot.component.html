@@ -1,0 +1,24 @@
+<div class="main">
+    <h4>Time Slot Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        <label for="timeslotid" class="label">Time Slot Id:</label>
+        <input type="number" min="0" id = "timeslotid" name="timeslotid" class="input" [(ngModel)]="time_slot_id"> <br>
+        <label for="day" class="label">Day:</label>
+        <input type="text" id = "day" name="day" class="input" [(ngModel)]="day"> <br>
+        <label for="start_time" class="label">Start Time:</label>
+        <input type="text" id = "start_time" name="start_time" class="input" [(ngModel)]="start_time"> <br>
+        <label for="end_time" class="label">End Time:</label>
+        <input type="text" id = "end_time" name="end_time" class="input" [(ngModel)]="end_time"> <br>
+        <button type="submit" class="btn btn-primary btn-sm">Add Time Slot</button>
+    </form>
+    <h6>Added Time Slot</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} . {{row.TIME_SLOT_ID}}</p>
+            <p class="text-sm col border border-black"> {{row.DAY}}</p>
+            <p class="text-sm col border border-black"> {{row.START_TIME}}</p>
+            <p class="text-sm col border border-black"> {{row.END_TIME}}</p>
+        </div>
+    </div>
+</div>

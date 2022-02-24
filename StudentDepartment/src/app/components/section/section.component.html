@@ -1,0 +1,38 @@
+<div class="main">
+    <h4>Section Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        <label for="courseid" class="label">Course:</label>
+        <select name="courseid" id="courseid" class="input">
+            <option *ngFor="let res of courseidresult" value="res.TITLE">{{res.TITLE}}</option>
+        </select><br>
+        <label for="secid" class="label">Section ID:</label>
+        <input type="number" min="0" id = "secid" name="secid" class="input" [(ngModel)]="sec_id"> <br>
+        <label for="semester" class="label">Semester:</label>
+        <input type="number" min="0" id = "semester" name="semester" class="input" [(ngModel)]="semester"> <br>
+        <label for="year" class="label">Year:</label>
+        <input type="number" min="0" id = "year" name="year" class="input" [(ngModel)]="year"> <br>
+        <label for="building" class="label">building:</label>
+        <input type="text" id = "building" name="building" class="input" [(ngModel)]="building"> <br>
+        <label for="roomnumber" class="label">Room Number:</label>
+        <input type="number" min="0" id = "roomnumber" name="roomnumber" class="input" [(ngModel)]="room_number"> <br>
+        <label for="timeslot" class="label">Time Slot:</label>
+        <select name="timeslot" class="input" id="timeslot">
+            <option *ngFor="let res of timeslotidresult" [value]="res.STAR_TTIME + 'TO' + res.END_TIME">{{res.START_TIME}} to {{res.END_TIME}}</option>
+        </select><br>
+        
+        <button type="submit" class="btn btn-primary btn-sm">Add Section</button>
+    </form>
+    <h6>Added Section</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} .{{getCourse(row.COURSE_ID)}}</p>
+            <p class="text-sm col border border-black">{{row.SEC_ID}}</p>
+            <p class="text-sm col border border-black">{{row.SEMESTER}}</p>
+            <p class="text-sm col border border-black">{{row.YEAR}}</p>
+            <p class="text-sm col border border-black"> {{row.BUILDING}}</p>
+            <p class="text-sm col border border-black"> {{row.ROOM_NUMBER}}</p>
+            <p class="text-sm col border border-black">{{getTimeSlot(row.TIME_SLOT_ID)}}</p>
+        </div>
+    </div>
+</div>

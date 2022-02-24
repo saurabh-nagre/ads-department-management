@@ -1,0 +1,22 @@
+<div class="main">
+    <h4>Department Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        
+        <label for="dept_name" class="label">Department Name:</label>
+        <input type="text" id = "dept_name" name="dept_name" class="input" [(ngModel)]="dept_name"> <br>
+        <label for="building" class="label">Building:</label>
+        <input type="text" id = "building" name="building" class="input" [(ngModel)]="building"> <br>
+        <label for="budget" class="label">budget:</label>
+        <input type="number" min="0" id = "budget" name="budget" class="input" [(ngModel)]="budget"> <br>
+        <button type="submit" class="btn btn-primary btn-sm">Add Department</button>
+    </form>
+    <h6>Added Department</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} . {{row.DEPT_NAME}}</p>
+            <p class="text-sm col border border-black"> {{row.BUILDING}}</p>
+            <p class="text-sm col border border-black"> {{row.BUDGET}}</p>
+        </div>
+    </div>
+</div>

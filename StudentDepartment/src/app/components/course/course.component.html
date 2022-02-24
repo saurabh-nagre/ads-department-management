@@ -1,0 +1,25 @@
+<div class="main">
+    <h4>Course Details</h4>
+    
+    <form (ngSubmit)="submit()">
+        
+        <label for="courseid" class="label">Course ID:</label>
+        <input type="text" id = "courseid" name="courseid" class="input" [(ngModel)]="course_id"> <br>
+        <label for="title" class="label">Title:</label>
+        <input type="text" id = "title" name="title" class="input" [(ngModel)]="title"> <br>
+        <label for="dept_name" class="label">Department Name:</label>
+        <input type="text" id = "dept_name" name="dept_name" class="input" [(ngModel)]="dept_name"> <br>
+        <label for="credits" class="label">Credits:</label>
+        <input type="number" min="0" id = "credits" name="credits" class="input" [(ngModel)]="credits"> <br>
+        <button type="submit" class="btn btn-primary btn-sm">Add Course</button>
+    </form>
+    <h6>Added Courses</h6>
+    <div *ngFor="let row of rows;let i = index">
+        <div class="row border border-black">
+            <p class="text-sm col border border-black">{{i+1}} .{{row.COURSE_ID}}</p>
+            <p class="text-sm col border border-black">{{row.TITLE}}</p>
+            <p class="text-sm col border border-black">{{row.DEPT_NAME}}</p>
+            <p class="text-sm col border border-black"> {{row.CREDITS}}</p>
+        </div>
+    </div>
+</div>
